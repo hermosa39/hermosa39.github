@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+
+  <title>HERMOSA - Nos Articles</title>
+  <style>
+   
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #fdf9f6;
+      color: #b38b59;
+    }
+
+    header {
+      background-color: #fff;
+      padding-top: 2rem;
+      text-align: center;
+      
+
+    }
+
+    .title {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #b38b59;
+      margin-bottom: 0.5rem;
+    }
+
+
+    .subtitle {
+      font-size: 2rem;
+      color: #b38b59;
+      font-family: 'Georgia', serif;
+      margin-bottom: 0.3rem;
+    }
+
+    .phrase {
+      font-style: italic;
+      color: #845c2c;
+      margin-bottom: 2rem;
+    }
+
+    .return-home {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      text-decoration: none;
+      color: #a67b5b;
+      font-weight: bold;
+    }
+
+    
+.category span,
+.subcategory {
+  display: block;
+  margin-top: 0.5rem;
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product img {
+  width: 100%;
+  aspect-ratio: 1 / 1;  
+  object-fit: cover;
+  border-radius: 100px;
+}
+    .category:hover, .subcategory:hover {
+      background-color: #d3bba4;
+      color: white;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    
+
+    .product {
+     
+     border-radius: 15px;
+     padding: 1rem;
+     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+     text-align: center;
+     transition: transform 0.3s ease;
+   }
+
+
+.product:hover {
+  transform: scale(1.03);
+}
+
+
+
+
+
+
+
+    
+    .sizes,   {
+      font-size : 0.9rem;
+      margin: 0.3rem 0;
+      
+    }
+    
+    .colors {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+}
+
+.colors .label {
+  font-weight: bold;
+  color: black;  
+}
+
+.colors .value {
+  color: #5e4630;  
+}
+
+    
+   
+
+
+    .add-btn, .details-btn {
+      background-color: #d3bba4;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 0.3rem 0.2rem;
+      transition: background 0.3s ease;
+    }
+
+    .add-btn:hover, .details-btn:hover {
+      background-color: #d48f00;
+    }
+
+    .cart {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #d9b99b;
+      padding: 1rem;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .cart-content {
+      position: fixed;
+      top: 70px;
+      right: 20px;
+      background-color: white;
+      border: 2px solid #b38b59;
+      padding: 1rem;
+      border-radius: 10px;
+      display: none;
+      width: 250px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .product img {
+  width: 100%;
+  aspect-ratio: 1 / 1; 
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+  
+
+
+    .popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #fff;
+      color: white;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      display: none;
+      z-index: 999;
+      animation: fade 3s ease forwards;
+    }
+
+    @keyframes fade {
+      0% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    @keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.category {
+  
+  animation: fadeInUp 0.7s ease forwards;
+  opacity: 0;
+}
+
+
+
+.categories .category:nth-child(2) { animation-delay: 0.2s; }
+.categories .category:nth-child(3) { animation-delay: 0.3s; }
+.categories .category:nth-child(4) { animation-delay: 0.4s; }
+.categories .category:nth-child(5) { animation-delay: 0.5s; }
+.categories .category:nth-child(6) { animation-delay: 0.6s; }
+
+.price {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+  font-weight: bold;
+  color: #000; 
+}
+
+.price .price-value {
+  color: #5e4630; 
+}
+
+.brand-title {
+  font-family: 'Cinzel', serif;
+  font-size: 4rem;
+  color: #b38b59;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.phrase {
+
+ 
+position: end;
+width: 100%;
+text-align: center;
+font-style: italic;
+color: #d3bba4;
+background-color: #fff;
+padding: 1rem 0;
+opacity: 0;
+animation: fadeInUp 1.2s ease forwards;
+animation-delay: 0.5s;
+z-index: 10;
+}
+.category span,
+.subcategory {
+  display: block;
+  margin-top: 0.5rem;
+  text-align: center;
+  color: white; 
+  font-size: 1rem;
+  
+}
+.category {
+  position: relative; 
+  width: 180px;
+  cursor: pointer;
+  overflow: hidden;
+  height: 180px; 
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.category span {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(179, 139, 89, 0.8); 
+  color: white;
+  font-size: 1.1rem;
+  padding: 0.4rem 0;
+  text-align: center;
+  font-weight: bold;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+.category span {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(179, 139, 89, 0.8); 
+  color: white;
+  font-size: 1.1rem;
+  padding: 0.4rem 0;
+  text-align: center;
+  font-weight: bold;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: 3; 
+}
+
+.subcategory {
+  display: flex;
+  justify-content: center;  
+  align-items: center;      
+  text-align: center;
+  background-color: #b38b59;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  animation: fadeInUp 0.5s ease;
+  min-width: 180px;  
+}
+.subcategory:hover {
+  background-color: #845c2c;
+}
+#subcategories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+#subsubcategories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.category {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.category img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+}
+
+.image-hover {
+  opacity: 0;
+  z-index: 1;
+}
+
+.image-default {
+  opacity: 1;
+  z-index: 2;
+}
+
+.category:hover .image-hover {
+  opacity: 1;
+}
+
+.category:hover .image-default {
+  opacity: 0;
+}
+.product-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.product-image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+  border-radius: 10px;
+}
+
+.image-default {
+  opacity: 1;
+  z-index: 2;
+}
+
+.image-hover {
+  opacity: 0;
+  z-index: 1;
+}
+
+.product-image-container:hover .image-default {
+  opacity: 0;
+}
+
+.product-image-container:hover .image-hover {
+  opacity: 1;
+}
+
+
+
+
+
+  </style>
+</head>
+
+<body>
+
+  <a href="index.html" class="return-home">← Accueil</a>
+
+  <header>
+    <h1 class="brand-title">HERMOSA</h1>
+     <div class="subtitle">NOS ARTICLES</div>
+
+  </header>
+
+  
+ 
+  
+  <div class="popup" id="popup">Article ajouté au panier !</div>
+
+  
+  <section class="categories">
+    <div class="category" onclick="showSubcategories('pantalon')">
+        <img src="pantalon1.jpg" class="image-default" alt="pantalons">
+        <img src="pantalon2.jpg" class="image-hover" alt="pantalons hover">
+        <span>Pantalons</span>
+      </div>
+     
+      
+    <div class="category" onclick="showSubcategories('robes')">
+        <img src="robe.jpg" class="image-default" alt="robes">
+        <img src="dress.jpg" class="image-hover" alt="robes hover">
+      <span>Robes</span>
+    </div>
+    <div class="category" onclick="showSubcategories('jupes')">
+        <img src="JUPE.jpg" class="image-default" alt="jupes">
+        <img src="JUPE2.jpg" class="image-hover" alt="jupes hover">
+      <span>Jupes</span>
+    </div>
+    <div class="category" onclick="showSubcategories('tshirts')">
+        <img src="tshirtt2.jpg" class="image-default" alt="tshirts">
+        <img src="tshirtt1.jpg" class="image-hover" alt="tshirtshover">
+      <span>T-shirts</span>
+    </div>
+    <div class="category" onclick="showSubcategories('chemises')">
+        <img src="chemisee2.jpg" class="image-default"alt="Chemises">
+        <img src="chemisee1.jpg" class="image-hover" alt= "chemises hover">
+      <span>chemises</span>
+    </div>
+    
+    <div class="category" onclick="showSubcategories('accessoires')">
+        <img src="accesoire1.jpg" class="image-default" alt="accesoires">
+        <img src="accesoire2.jpg" class="image-hover" alt= "accesoires hover">
+      <span>Accessoires</span>
+    </div>
+  </section>
+
+  <section class="subcategories" id="subcategories"></section>
+  <section class ="subcategories" id="subsubcategories"></section>
+  <section class="products" id="products"></section>
+
+  <script>
+   
+
+   const subcategoryData = {
+  pantalon: ['pantalon classique', 'pantalon en jean'],
+  robes: ['Robes','Robes de soirée'],
+  jupes: ['Jupes'],
+  tshirts: ['tshirts'],
+  chemises: ['Chemises '],
+  accessoires: ['Sacs', 'Montres', 'Bijoux']
+};
+
+const subSubcategoryData = {
+  'pantalon en jean': ['Slim', 'Carré', 'Baggy']
+};
+
+
+
+    let cartItems = [];
+    
+    function showSubcategories(category) {
+  const container = document.getElementById('subcategories');
+  const subSubContainer = document.getElementById('subsubcategories');
+  container.innerHTML = '';
+  subSubContainer.innerHTML = '';
+  container.style.display = 'flex';
+  subSubContainer.style.display = 'none';
+  console.log("Sous-catégories pour :", category, subcategoryData[category]);
+
+
+  subcategoryData[category].forEach(sub => {
+    const div = document.createElement('div');
+    div.className = 'subcategory';
+    div.innerText = sub;
+
+    div.onclick = () => {
+      if (subSubcategoryData[sub]) {
+        showSubSubcategories(sub);
+      } else {
+        showProducts(sub);
+      }
+    };
+
+    container.appendChild(div);
+  });
+}
+
+function showSubSubcategories(subcategory) {
+  const container = document.getElementById('subsubcategories');
+  container.innerHTML = '';
+  container.style.display = 'flex';
+  console.log("Sous-sous-catégories pour :", subcategory, subSubcategoryData[subcategory]);
+
+  subSubcategoryData[subcategory].forEach(subsub => {
+    const div = document.createElement('div');
+    div.className = 'subcategory';
+    div.innerText = subsub;
+
+    div.onclick = () => showProducts(subsub);
+    container.appendChild(div);
+  });
+}
+
+function showProducts(subcategory) {
+  console.log("Afficher les produits pour :", subcategory); 
+  const container = document.getElementById('products');
+  container.innerHTML = '';
+
+  const items = productsData[subcategory] || [];
+
+  if (items.length === 0) {
+    container.innerHTML = `<pstyle="text-align:center; font-style:italic;">Aucun produit trouvé pour "${subcategory}"</p>`;
+    return;
+  }
+
+  items.forEach((item, i) => {
+    const product = document.createElement('div');
+    product.className = 'product';
+
+    product.innerHTML = `
+     <div class="product-image-container">
+  <img src="${item.img}" class="image-default" alt="${subcategory}">
+  <img src="${item.img2}" class="image-hover" alt="${subcategory} hover">
+</div>
+
+      <h4>${subcategory}</h4>
+
+      <label for="size-${i}">Taille:</label>
+      <select id="size-${i}">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+      </select>
+
+      <label for="color-${i}">Couleur:</label>
+      <select id="color-${i}">
+        <option value="Beige">Beige</option>
+        <option value="Noir">Noir</option>
+        <option value="Blanc">Blanc</option>
+      </select>
+
+      <div class="price">Prix: <span class="price-value">${item.price} DA</span></div>
+
+      <button class="add-btn" onclick="addToCart('${subcategory}', ${item.price}, document.getElementById('size-${i}').value, document.getElementById('color-${i}').value)">Ajouter au panier</button>
+    `;
+
+    container.appendChild(product);
+  });
+}
+
+
+   function addToCart(name, price, size, color) {
+  cartItems.push({ name, price, size, color });
+  localStorage.setItem('cart', JSON.stringify(cartItems)); // Sauvegarder dans localStorage
+  window.location.href = 'panier.html'; // Redirection automatique
+}
+
+
+    
+function updateCart() {
+  const cart = document.getElementById('cart-items');
+  cart.innerHTML = '<h4>Articles dans le panier :</h4>';
+  cartItems.forEach(item => {
+    const line = document.createElement('div');
+    line.textContent = `${item.name} - ${item.price} DA - Taille: ${item.size} - Couleur: ${item.color}`;
+    cart.appendChild(line);
+  });
+}
+
+
+    function toggleCart() {
+      const cart = document.getElementById('cart-items');
+      cart.style.display = cart.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function showPopup() {
+      const popup = document.getElementById('popup');
+      popup.style.display = 'block';
+      setTimeout(() => popup.style.display = 'none', 2500);
+    }
+
+
+
+
+
+
+
+
+const productsData = {
+  
+ 
+  Slim: [
+  { img: 'Jean1.jpg', img2: 'Jean1b.jpg', price: 2500 },
+
+  { img: 'Jean2.jpg', img2: 'Jean2b.jpg', price: 2600 },
+  { img: 'Jean3.jpg', img2: 'Jean3b.jpg', price: 2700 },
+  { img: 'image/Jean4.jpg', img2: 'Jean4b.jpg', price: 2800 }
+],
+  Carré: [
+  { img: 'J2.jpg', img2: 'J1.jpg', price: 2500 },
+  { img: 'J3.jpg', img2: 'J4.jpg', price: 2600 },
+  { img: 'J5.jpg', img2: 'J6.jpg', price: 2700 }
+  
+  ],
+  Baggy: [
+  { img: 'Z1.jpg', img2: 'Z2.jpg', price: 2500 },
+  { img: 'Z3.jpg', img2: 'Z4.jpg', price: 2600 },
+  { img: 'Z5.jpg', img2: 'Z6.jpg', price: 2700 },
+  { img: 'Z7.jpg', img2: 'Z8.jpg', price: 2800 }
+  ],
+
+
+  'pantalon classique': [
+  { img: 'A1.jpg', img2: 'A2.jpg', price: 2500 },
+  { img: 'A4.jpg', img2: 'A3.jpg', price: 2600 },
+  { img: 'A5.jpg', img2: 'A6.jpg', price: 2700 },
+  { img: 'A7.jpg', img2: 'A8.jpg', price: 2800 }
+  ],
+
+  
+  Robes: [
+  { img: 'robe1.jpg', img2: 'robe2.jpg', price: 2500 },
+  { img: 'robe3.jpg', img2: 'robe4.jpg', price: 2600 },
+
+  { img: 'robe5.jpg', img2: 'robe6.jpg', price: 2700 },
+  { img: 'robe7.jpg', img2: 'robe8.jpg', price: 2800 },
+  { img: 'robe10.jpg', img2: 'robe9.jpg', price: 2700 },
+  { img: 'robe11.jpg', img2: 'robe12.jpg', price: 2800 }
+  ],
+
+  'Robes de soirée': [
+    { img: 'robesoiré1.jpg', img2: 'robesoiré2.jpg', price: 2500 },
+  { img: 'robesoiré4.jpg', img2: 'robesoiré3.jpg', price: 2600 },
+  { img: 'robesoiré5.jpg', img2: 'robesoiré6.jpg', price: 2700 },
+  { img: 'robesoiré7.jpg', img2: 'robesoiré8.jpg', price: 2800 },
+  { img: 'robesoiré9.jpg', img2: 'robesoiré10.jpg', price: 2700 },
+  { img: 'robesoiré11.jpg', img2: 'robesoiré12.jpg', price: 2800 }
+  ],
+
+  
+'Jupes': [
+  { img: 'G1.jpg', img2: 'G2.jpg', price: 2500 },
+  { img: 'G4.jpg', img2: 'G3.jpg', price: 2600 },
+  { img: 'G5.jpg', img2: 'G6.jpg', price: 2700 },
+  { img: 'G7.jpg', img2: 'G8.jpg', price: 2800 }
+  ],
+
+
+  'tshirts': [
+  { img: 'tshirt1.jpg', img2: 'tshirt2.jpg', price: 2500 },
+  { img: 'tshirt3.jpg', img2: 'tshirt4.jpg', price: 2600 },
+  { img: 'tshirt5.jpg', img2: 'tshirt6.jpg', price: 2700 },
+  { img: 'tshirt8.jpg', img2: 'tshirt7.jpg', price: 2700 },
+  { img: 'tshirt9.jpg', img2: 'tshirt10.jpg', price: 2800 }
+  
+  ],
+
+  
+  'Chemises ': [
+  { img: 'cb.jpg', img2: 'cbb.jpg', price: 2500 },
+  { img: 'CB1.jpg', img2: 'CB2.jpg', price: 2600 },
+  { img: 'ch1.jpg', img2: 'ch2.jpg', price: 2700 },
+  { img: 'CHROSE1.jpg', img2: 'CHROSE2.jpg', price: 2800 },
+  { img: 'chbleu1.jpg', img2: 'CHBLEU2.jpg', price: 2700 }
+],
+
+  
+  Sacs: [
+  { img: 'S1.jpg', img2: 'S1.jpg', price: 2500 },
+  { img: 'S3.jpg', img2: 'S3.jpg', price: 2600 },
+  { img: 'S5.jpg', img2: 'S5.jpg', price: 2700 },
+  { img: 'S2.jpg', img2: 'S2.jpg', price: 2800 },
+  { img: 'S4.jpg', img2: 'S4.jpg', price: 2700 }
+  ],
+  Montres: [
+  { img: 'M1.jpg', img2: 'M1.jpg', price: 2500 },
+  { img: 'M2.jpg', img2: 'M2.jpg', price: 2600 },
+  { img: 'M3.jpg', img2: 'M3.jpg', price: 2700 },
+  { img: 'M4.jpg', img2: 'M4.jpg', price: 2800 }
+  ],
+  Bijoux: [
+  { img: 'X1.jpg', img2: 'X1.jpg', price: 2500 },
+  { img: 'X2.jpg', img2: 'X2.jpg', price: 2600 },
+  { img: 'X3.jpg', img2: 'X3.jpg', price: 2700 },
+  { img: 'X4.jpg', img2: 'X4.jpg', price: 2800 },
+  { img: 'X5.jpg', img2: 'X5.jpg', price: 2700 },
+  { img: 'X6.jpg', img2: 'X6.jpg', price: 2800 }
+  ],
+};
+
+
+
+
+  </script>
+ <div class="phrase">Prenez le temps de vous faire plaisir</div>
+ <script>
+  const boutonsAjouter = document.querySelectorAll(".ajouter-panier");
+
+  boutonsAjouter.forEach(bouton => {
+    bouton.addEventListener("click", () => {
+      const nom = bouton.dataset.nom;
+      const prix = bouton.dataset.prix;
+
+      let panier = JSON.parse(localStorage.getItem("panier")) || [];
+      panier.push({ nom, prix });
+      localStorage.setItem("panier", JSON.stringify(panier));
+
+      alert(`${nom} a été ajouté au panier !`);
+    });
+  });
+</script>
+</body>
+</html> 

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mon Panier - Hermosa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdf9f6;
+      color: #2e2e2e;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3em;
+      margin: 0;
+      color: #b38b59;
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2em;
+      color: #b38b59;
+      margin-bottom: 30px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #f6eee7;
+      padding-bottom: 10px;
+    }
+
+    section {
+      padding: 0 30px 60px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .cart-section {
+      padding: 40px;
+      background-color: #fff;
+      margin-top: 60px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .cart-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.3em;
+      margin-bottom: 5px;
+    }
+
+    .cart-item p {
+      font-size: 0.95em;
+      color: #6b5e52;
+      font-style: italic;
+    }
+
+    .cart-item input {
+      width: 50px;
+    }
+
+    .cart-total {
+      text-align: right;
+      font-size: 1.2em;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #b38b59;
+    }
+
+    .empty-message {
+      text-align: center;
+      font-size: 1.2em;
+      color: #e76f51;
+      display: none;
+    }
+
+    footer {
+      background: linear-gradient(to right, #f6eee7, #fdf9f6);
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #9c8a75;
+      margin-top: 60px;
+    }
+
+    #valider-commande {
+      background-color: #b38b59;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      font-size: 1em;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 6px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      display: none;
+    }
+
+    #valider-commande:hover {
+      background-color: #9c7343;
+      transform: scale(1.03);
+    }
+
+    .supprimer-article {
+      background-color: #e76f51;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9em;
+      margin-left: 10px;
+    }
+
+    .supprimer-article:hover {
+      background-color: #d1583c;
+    }
+
+    /* Paiement */
+    #formulaire-paiement {
+      display: none;
+      margin-top: 40px;
+      background-color: #fff8f1;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .btn {
+      background-color: #b38b59;
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #9c7343;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mon Panier</h1>
+  </header>
+
+  <section class="cart-section">
+    <h2>Votre Panier</h2>
+    <div id="cart-items"></div>
+    <div class="cart-total" id="cart-total"></div>
+    <div class="empty-message" id="empty-message">Votre panier est vide 🛒</div>
+
+    <div style="text-align:right; margin-top: 30px;">
+      <button id="valider-commande">Valider la commande</button>
+    </div>
+
+    <!-- Formulaire de paiement -->
+    <div id="formulaire-paiement">
+      <h2>Paiement sécurisé</h2>
+      <form id="form-paiement">
+        <div class="form-group">
+          <label>Nom complet</label>
+          <input type="text" id="nom-complet" required>
+        </div>
+        <div class="form-group">
+          <label>Adresse de livraison</label>
+          <input type="text" id="adresse" required>
+        </div>
+        <div class="form-group">
+          <label>Type de carte</label>
+          <select id="type-carte" required>
+            <option value="">-- Sélectionner --</option>
+            <option value="dahabiya">Carte Dahabiya</option>
+            <option value="visa">Carte Visa</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Numéro de carte</label>
+          <input type="text" maxlength="19" placeholder="XXXX XXXX XXXX XXXX" required>
+        </div>
+        <div class="form-group">
+          <label>Date d’expiration</label>
+          <input type="month" required>
+        </div>
+        <div class="form-group">
+          <label>Code CVV</label>
+          <input type="text" maxlength="4" required>
+        </div>
+        <button type="submit" class="btn">Payer maintenant</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Hermosa - Tous droits réservés</p>
+  </footer>
+
+  <script>
+    function afficherPanier() {
+      const panier = JSON.parse(localStorage.getItem("panier")) || [];
+      const container = document.getElementById("cart-items");
+      const totalDiv = document.getElementById("cart-total");
+      const emptyMsg = document.getElementById("empty-message");
+      const btnValider = document.getElementById("valider-commande");
+
+      container.innerHTML = "";
+      totalDiv.innerHTML = "";
+
+      if (panier.length === 0) {
+        emptyMsg.style.display = "block";
+        btnValider.style.display = "none";
+        return;
+      } else {
+        emptyMsg.style.display = "none";
+        btnValider.style.display = "inline-block";
+      }
+
+      let total = 0;
+
+      panier.forEach((article, index) => {
+        total += article.prix * article.quantite;
+
+        const articleDiv = document.createElement("div");
+        articleDiv.className = "cart-item";
+        articleDiv.innerHTML = `
+          <div>
+            <h3>${article.nom}</h3>
+            <p>Prix : ${article.prix.toLocaleString()} DZD</p>
+          </div>
+          <div class="cart-item-actions">
+            <label>Qté :</label>
+            <input type="number" min="1" value="${article.quantite}" data-index="${index}">
+            <button class="supprimer-article" data-index="${index}">Supprimer</button>
+          </div>
+        `;
+        container.appendChild(articleDiv);
+      });
+
+      totalDiv.innerHTML = `Total : ${total.toLocaleString()} DZD`;
+
+      // Gérer les changements de quantité
+      document.querySelectorAll(".cart-item-actions input").forEach(input => {
+        input.addEventListener("change", (e) => {
+          const panier = JSON.parse(localStorage.getItem("panier")) || [];
+          const index = parseInt(e.target.dataset.index);
+          const nouvelleQuantite = parseInt(e.target.value);
+          if (nouvelleQuantite > 0) {
+            panier[index].quantite = nouvelleQuantite;
+            localStorage.setItem("panier", JSON.stringify(panier));
+            afficherPanier();
+          }
+        });
+      });
+
+      // Gérer la suppression d’un article
+      document.querySelectorAll(".supprimer-article").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          const index = parseInt(e.target.dataset.index);
+          let panier = JSON.parse(localStorage.getItem("panier")) || [];
+          panier.splice(index, 1);
+          localStorage.setItem("panier", JSON.stringify(panier));
+          afficherPanier();
+        });
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      afficherPanier();
+
+      const btnValider = document.getElementById("valider-commande");
+      btnValider.addEventListener("click", () => {
+        const formPaiement = document.getElementById("formulaire-paiement");
+        formPaiement.style.display = "block";
+        btnValider.style.display = "none";
+      });
+
+      document.getElementById("form-paiement").addEventListener("submit", function(e) {
+        e.preventDefault();
+        alert("✅ Paiement effectué avec succès ! Merci pour votre commande.");
+        localStorage.removeItem("panier");
+        window.location.reload();
+      });
+    });
+  </script>
+</body>
+</html>

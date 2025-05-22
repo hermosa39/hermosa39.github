@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nouvelle Collection - Hermosa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdf9f6;
+      color: #2e2e2e;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3em;
+      margin: 0;
+      color: #b38b59;
+      letter-spacing: 2px;
+    }
+
+    section {
+      padding: 0 30px 60px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      overflow: hidden;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .product-image-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      height: 0;
+      padding-top: 133%; /* 4:3 ratio */
+      margin-bottom: 15px;
+    }
+
+    .product-image-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .product-image-main {
+      z-index: 1;
+      transform: translateX(0);
+    }
+
+    .product-image-alt {
+      z-index: 2;
+      transform: translateX(100%);
+    }
+
+    .product-card:hover .product-image-main {
+      transform: translateX(-100%);
+    }
+
+    .product-card:hover .product-image-alt {
+      transform: translateX(0%);
+    }
+
+    .product-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1em;
+      color: #2e2e2e;
+      margin: 10px 0 5px;
+    }
+
+    .price {
+      color: #b38b59;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      border-radius: 25px;
+      background-color: #b38b59;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #9a6c42;
+    }
+
+    .badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background-color: #e76f51;
+      color: white;
+      font-size: 0.75em;
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-weight: bold;
+      z-index: 10;
+    }
+
+    footer {
+      background: linear-gradient(to right, #f6eee7, #fdf9f6);
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #9c8a75;
+      margin-top: 60px;
+    }
+    .return-home {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      text-decoration: none;
+      color: #a67b5b;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="return-home">← Accueil</a>
+
+  <header>
+    <h1>Nouvelle Collection</h1>
+  </header>
+
+  <section>
+    <h2 style="text-align: center; font-family: 'Playfair Display', serif; color: #b38b59; font-size: 2em; margin-bottom: 20px;">Nos dernières pépites</h2>
+
+    <div class="product-grid" id="product-grid">
+      
+      <div class="product-card">
+        <span class="badge">Nouveau</span>
+        <div class="product-image-container">
+          <img src="cardigan.png" alt="cardigan" class="product-image-main">
+          <img src="cardigan2.jpg" alt="cardigan Vue 2" class="product-image-alt">
+        </div>
+        <h3>Cardigan</h3>
+        <p class="price">5600 da</p>
+       
+        <a href="./panier.html" 
+   class="btn ajouter-panier" 
+   data-nom="Cardigan" 
+   data-prix="5600">
+   
+
+   Ajouter au panier
+</a>
+
+      </div>
+
+      
+      <div class="product-card">
+        <span class="badge">Nouveau</span>
+        <div class="product-image-container">
+        <img src="Pull duveteux.jpg" alt="pull duveteux" class="product-image-main">
+        <img src="pull duveteux 2.jpg" alt=" pull duveteux  Vue 2" class="product-image-alt">
+      </div>
+      <h3>pull duveteux</h3>
+      <p class="price">3000 Da</p>
+      
+     <a href="./panier.html" 
+   class="btn ajouter-panier" 
+   data-nom="pull duveteux" 
+   data-prix="7500">
+   Ajouter au panier
+</a>
+
+
+    </div>
+
+    <div class="product-card">
+      <span class="badge">Nouveau</span>
+      <div class="product-image-container">
+        <img src="inner shirt.jpg" alt="inner shirt" class="product-image-main">
+        <img src="inner shirt 2.jpg" alt=" inner shirt  Vue 2" class="product-image-alt">
+      </div>
+      <h3>inner shirt </h3>
+      <p class="price">3500 Da</p>
+      
+      <a href="./panier.html" 
+   class="btn ajouter-panier" 
+   data-nom="inner shirt" 
+   data-prix="3500">
+   Ajouter au panier
+</a>
+
+    </div>
+
+      <div class="product-card">
+      <span class="badge">Nouveau</span>
+      <div class="product-image-container">
+        <img src="robe decontracté.jpg" alt="robe décontractée" class="product-image-main">
+        <img src="robe décontracé2.jpg" alt=" robe décontractée  Vue 2" class="product-image-alt">
+      </div>
+      <h3>robe décontractée</h3>
+      <p class="price">7000 Da</p>
+      
+      <a href="./panier.html" 
+   class="btn ajouter-panier" 
+   data-nom="robe décontractée" 
+   data-prix="7500">
+   Ajouter au panier
+</a>
+
+    </div>
+
+    <div class="product-card">
+      <span class="badge">Nouveau</span>
+      <div class="product-image-container">
+        <img src="haut drapé.jpg" alt="haut drapé" class="product-image-main">
+        <img src="haut drapé 2.jpg" alt=" haut drapé  Vue 2" class="product-image-alt">
+      </div>
+      <h3>haut drapé</h3>
+      <p class="price">4000Da</p>
+      
+      <a href="./panier.html" 
+   class="btn ajouter-panier" 
+   data-nom="haut drapé" 
+   data-prix="5500">
+   Ajouter au panier
+</a>
+
+    </div>
+
+    <div class="product-card">
+      <span class="badge">Nouveau</span>
+      <div class="product-image-container">
+        <img src="Chemise.jpg" alt="chemise" class="product-image-main">
+        <img src="chemise 1.jpg" alt=" chemise Vue 2" class="product-image-alt">
+      </div>
+      <h3>chemise</h3>
+      <p class="price">4500 Da</p>
+     
+      <a href="./panier.html" 
+   class="btn ajouter-panier" 
+   data-nom="chemise" 
+   data-prix="4500">
+   Ajouter au panier
+</a>
+
+    </div>
+
+  
+    <div class="product-card">
+      <span class="badge">Nouveau</span>
+      <div class="product-image-container">
+        <img src="pullbear.jpg" alt=" bear shirt" class="product-image-main">
+        <img src="pull bear 2.jpg" alt="bear shirt" class="product-image-alt">
+      </div>
+      <h3>Bear shirt</h3>
+      <p class="price">2500 Da</p>
+      
+      <a href="./panier.html" 
+   class="btn ajouter-panier" 
+   data-nom="Bear shirt" 
+   data-prix="2500">
+   Ajouter au panier
+</a>
+
+    </div>
+
+    
+    <div class="product-card">
+      <span class="badge">Nouveau</span>
+      <div class="product-image-container">
+        <img src="ensemble en lin.jpg" alt="ensemble en lin " class="product-image-main">
+        <img src="ensemble en lin 2.jpg" alt=" ensemble en lin " class="product-image-alt">
+      </div>
+      <h3>ensemble en lin </h3>
+      <p class="price">7000Da</p>
+      
+      <a href="./panier.html" 
+   class="btn ajouter-panier" 
+   data-nom="ensemble en lin" 
+   data-prix="4000">
+   Ajouter au panier
+</a>
+
+    </div>
+
+    <div class="product-card">
+      <span class="badge">Nouveau</span>
+      <div class="product-image-container">
+        <img src="leo.jpg" alt="leopard cardigan" class="product-image-main">
+        <img src="leo2.jpg" alt="leopard cardigan  2" class="product-image-alt">
+      </div>
+      <h3>leopard cardigan</h3>
+      <p class="price">6000Da</p>
+      
+      <a href="./panier.html" 
+   class="btn ajouter-panier" 
+   data-nom="leopard cardigan" 
+   data-prix="6000">
+   Ajouter au panier
+</a>
+
+    </div>
+
+    <div class="product-card">
+      <span class="badge">Nouveau</span>
+      <div class="product-image-container">
+        <img src="Brooklyn shirt.jpg" alt="Brooklyn shirt" class="product-image-main">
+        <img src="brooklyn shirt 2.jpg" alt=" Brooklyn shirt  Vue 2" class="product-image-alt">
+    </div>
+    <h3> Brooklyn shirt</h3>
+    <p class="price">2500Da</p>
+    
+    <a href="./panier.html" 
+   class="btn ajouter-panier" 
+   data-nom="Brooklyn shirt" 
+   data-prix="2500">
+   Ajouter au panier
+</a>
+
+  </div>
+
+  <div class="product-card">
+    <span class="badge">Nouveau</span>
+    <div class="product-image-container">
+      <img src="top chic.jpg" alt="top chic" class="product-image-main">
+      <img src="top chic 2.jpg" alt=" top chic  Vue 2" class="product-image-alt">
+    </div>
+    <h3>top chic</h3>
+    <p class="price">3800Da</p>
+    
+   <a href="./panier.html" 
+   class="btn ajouter-panier" 
+   data-nom="top chic" 
+   data-prix="3800">
+   Ajouter au panier
+</a>
+
+  </div>
+
+
+  
+</div>
+
+<div style="text-align: center; margin-top: 40px;">
+  <a href="#" id="toggle-btn" class="btn" style="padding: 12px 30px; font-size: 1em;">Voir plus</a>
+</div>
+</section>
+
+<footer>
+<p>&copy; 2025 Hermosa - Tous droits réservés</p>
+</footer>
+
+<script>
+document.getElementById('toggle-btn').addEventListener('click', function () {
+  const hiddenItems = document.querySelectorAll('.hidden');
+  const isVisible = hiddenItems[0] && hiddenItems[0].style.display === 'block';
+
+  hiddenItems.forEach(item => {
+    item.style.display = isVisible ? 'none' : 'block';
+  });
+
+  this.textContent = isVisible ? 'Voir plus' : 'Voir moins';
+});
+</script>
+<script>
+  const boutonsAjouter = document.querySelectorAll(".ajouter-panier");
+
+  boutonsAjouter.forEach(bouton => {
+    bouton.addEventListener("click", () => {
+      const nom = bouton.dataset.nom;
+      const prix = bouton.dataset.prix;
+
+      let panier = JSON.parse(localStorage.getItem("panier")) || [];
+      panier.push({ nom, prix });
+      localStorage.setItem("panier", JSON.stringify(panier));
+
+      alert(`${nom} a été ajouté au panier !`);
+    });
+  });
+</script>
+</body>
+</html>

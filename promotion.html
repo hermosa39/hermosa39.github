@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Promotions - Hermosa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdf9f6;
+      color: #2e2e2e;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3em;
+      margin: 0;
+      color: #b38b59;
+      letter-spacing: 2px;
+      transition: transform 0.4s ease;
+    }
+
+    h1:hover {
+      transform: scale(1.03);
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    section p {
+      font-size: 1.3em;
+      margin-bottom: 40px;
+      font-style: italic;
+      color: #4b4b4b;
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .categories {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .category-link {
+      text-decoration: none;
+      background-color: white;
+      border: 1px solid #b38b59;
+      color: #b38b59;
+      padding: 18px 30px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 1.1em;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+      min-width: 180px;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .category-link::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: skewX(-20deg);
+    }
+
+    .category-link:hover::after {
+      animation: shimmer 0.75s ease-in-out;
+    }
+
+    @keyframes shimmer {
+      100% {
+        left: 125%;
+      }
+    }
+
+    .category-link:hover {
+      background-color: #b38b59;
+      color: white;
+      transform: scale(1.05);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .gift-indicator {
+      font-size: 1.4em;
+      position: absolute;
+      top: 5px;
+      right: 12px;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .row {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    
+    .sparkle {
+      position: fixed;
+      top: -20px;
+      width: 8px;
+      height: 8px;
+      background-color: gold;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: fall linear forwards;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    .return-home {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      text-decoration: none;
+      color: #a67b5b;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="return-home">← Accueil</a>
+
+  <header>
+    <h1>Promotions Exclusives</h1>
+  </header>
+
+  <section>
+    <p>Promotions en cours : mode on, prix off.</p><div class="categories">
+        <div class="row">
+          <a href="robe.html" class="category-link">Robes</a>
+          <a href="jupe.html" class="category-link">Jupes</a>
+        </div>
+        <div class="row">
+          <a href="pullchemise.html" class="category-link">Pull & Chemise</a>
+          <a href="pantalon.html" class="category-link">Pantalons</a>
+        </div>
+        <div class="row">
+          <a href="ensemble.html" class="category-link">
+            Ensembles <span class="gift-indicator">🎁</span>
+          </a>        
+          <a href="accessoires.html" class="category-link">Accessoires</a>
+        </div>
+      </div>
+    </section>
+  
+    <script>
+      
+      function createSparkle() {
+        const sparkle = document.createElement('div');
+        sparkle.classList.add('sparkle');
+        sparkle.style.left = Math.random() * 100 + 'vw';
+        sparkle.style.animationDuration = 2 + Math.random() * 3 + 's';
+        document.body.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 5000);
+      }
+  
+      setInterval(createSparkle, 300);
+    </script>
+  </body>
+  </html>

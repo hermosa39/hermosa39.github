@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hermosa - Accueil</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url('bc.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      min-height: 100vh;
+      position: relative;
+      padding-bottom: 100px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .site-name {
+      font-family: 'Lobster', cursive;
+      font-size: 7em;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
+      font-weight: normal;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+    
+    }
+    .site-name:hover {
+      transform: scale(1.1); 
+    }
+
+    .welcome-message {
+      margin-bottom: 90px;
+      color: #fff;
+      font-style: italic;
+      text-align: left;
+      font-size: 1em;
+    }
+
+    .welcome-text {
+      font-style: italic;
+      font-size: 2em;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .right-text {
+      font-style: italic;
+      font-size: 1.4em;
+      text-align: right;
+      margin-top: 10px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .menu ul {
+      list-style-type: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .menu-item {
+      text-decoration: none;
+      color: white;
+      font-size: 1.2em;
+      transition: color 0.3s;
+    }
+
+    .menu-item:hover {
+      color: #f0a500;
+    }
+
+    .menu-dots {
+      position: absolute;
+      top: 20px;
+      left: 60px;
+      font-size: 2.2em;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .menu-dropdown {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 60px;
+      background-color: #fff;
+      color: black;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 99;
+    }
+
+    .menu-dropdown a {
+      color: black;
+      text-decoration: none;
+      display: block;
+      padding: 8px;
+    }
+
+    .menu-dropdown a:hover {
+      background-color: #f0a500;
+      color: white;
+    }
+
+    .logo-hermosa {
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .logo-hermosa svg {
+      width: 80px;
+      height: auto;
+      fill:white;
+    }
+
+    .cart-icon {
+      font-size: 1em;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      cursor: pointer;
+    }
+
+    .contact-icon {
+      font-size: 1em;
+      position: absolute;
+      right: 60px;
+      top: 20px;
+      cursor: pointer;
+    }
+
+    
+
+    
+
+    .contact-info {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background-color: #fff;
+      color: black;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .location-icon {
+      position: absolute;
+      top: 22px;
+      left: 20px;
+      font-size: 1.5em;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    .location-icon a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .location-icon a:hover {
+      color: #f0a500;
+    }
+
+    .boutique-photos {
+      margin: 100px auto 40px auto;
+      overflow: hidden;
+      width: 100%;
+      background-color: rgba(255,255,255,0.1);
+      padding: 20px 0;
+    }
+
+    .photo-slider {
+      display: flex;
+      width: calc(10 * 320px);
+      animation: slide 40s linear infinite;
+    }
+
+    .photo-slider img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      margin: 0 10px;
+      border-radius: 10px;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .social-links {
+      margin: 40px 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .social-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #f0a500;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+    }
+
+    footer .logo-hermosa {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="location-icon">
+    <a href="https://maps.google.com/?q=Tizi+Ouzou,+Algérie" target="_blank" title="Voir sur Google Maps">📍</a>
+  </div>
+
+  <div class="menu-dots" id="menu-dots">≡</div>
+  <div class="menu-dropdown" id="menu-dropdown">
+    <div class="logo-hermosa">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="40" stroke="black" stroke-width="5" fill="none"/>
+        <text x="50%" y="50%" font-size="14" text-anchor="middle" fill="black" dy=".3em">Hermosa</text>
+      </svg>
+    </div>
+    <a href="./nouvellecollection.html">Nouvelle Collection</a>
+    <a href="./promotion.html">Promotion</a>
+    <a href="./article.html">Articles</a>
+  </div>
+
+ 
+
+  <div class="contact-icon" id="contact-icon">📞</div>
+  <div class="contact-info" id="contact-info">
+    <p>Email: <a href="mailto:kmslr368@gmail.com">kmslr368@gmail.com</a></p>
+    <p>Téléphone: <a href="tel:+33771850908">0771850908</a></p>
+    <div style="margin-top: 15px;">
+      <button onclick="openModal('Connexion')">Log in</button>
+      <button onclick="openModal('Inscription')">Sign up</button>
+    </div>
+  </div>
+
+  <nav class="menu">
+    <ul>
+      <li><a href="panier.html" class="menu-item"><span class="cart-icon">🛒</span></a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <header>
+      <h1 class="site-name">Hermosa</h1>
+    </header>
+    <section class="welcome-message">
+      <p class="welcome-text">Bienvenue où l'élégance prend vie</p>
+      <p class="right-text">Style affirmé, esprit libre</p>
+    </section>
+  </div>
+
+  <section class="boutique-photos">
+    <div class="photo-slider">
+      <img src="bc.jpg" alt="Boutique 1">
+      <img src="bd.jpg" alt="Boutique 2">
+      <img src="bd1.jpg" alt="Boutique 3">
+      <img src="bd2.jpg" alt="Boutique 4">
+      <img src="bd3.jpg" alt="Boutique 5">
+      <img src="bd4.jpg" alt="Boutique 6">
+      <img src="pic1.jpg" alt="Boutique 7">
+      <img src="PIC9.jpg" alt="Boutique 8">
+      <img src="PIC10.jpg" alt="Boutique 9">
+      <img src="pic2.jpg" alt="Boutique 10">
+    </div>
+  </section>
+
+  <section class="social-location">
+    <div class="social-links">
+      
+      <a href="https://www.instagram.com/hermoosaa_?igsh=ZDdnYXg3cWtnbXNk" target="_blank">Instagrame</a>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="logo-hermosa">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="40" stroke="black" stroke-width="5" fill="none"/>
+        <text x="50%" y="50%" font-size="14" text-anchor="middle" fill="black" dy=".3em">Hermosa</text>
+      </svg>
+    </div>
+  </footer>
+
+  
+  <div id="auth-modal" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); z-index: 9999; justify-content: center; align-items: center;">
+    <div style="background-color: white; padding: 30px; border-radius: 10px; width: 300px; color: black; position: relative;">
+      <span id="close-modal" style="position: absolute; top: 10px; right: 15px; font-size: 1.4em; cursor: pointer;">&times;</span>
+      <h2 id="modal-title">Connexion</h2>
+      <form id="auth-form">
+        <div id="extra-fields" style="display: none;">
+          <input type="text" placeholder="Nom" required style="width: 100%; margin: 10px 0; padding: 8px;" />
+          <input type="text" placeholder="Prénom" required style="width: 100%; margin: 10px 0; padding: 8px;" />
+          <input type="tel" placeholder="Numéro de téléphone" required style="width: 100%; margin: 10px 0; padding: 8px;" />
+        </div>
+        <input type="email" placeholder="Email" required style="width: 100%; margin: 10px 0; padding: 8px;" />
+        <input type="password" placeholder="Mot de passe" required style="width: 100%; margin: 10px 0; padding: 8px;" />
+        <button type="submit" style="margin-top: 10px; padding: 8px 12px; width: 100%;">Continuer</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('menu-dots').addEventListener('click', function() {
+      const dropdown = document.getElementById('menu-dropdown');
+      dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+    });
+
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('menu-dropdown');
+      const dots = document.getElementById('menu-dots');
+      if (!dots.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+
+    document.getElementById('contact-icon').addEventListener('click', function() {
+      const contactInfo = document.getElementById('contact-info');
+      contactInfo.style.display = (contactInfo.style.display === 'block') ? 'none' : 'block';
+    });
+
+    document.addEventListener('click', function(event) {
+      const contactInfo = document.getElementById('contact-info');
+      const contactIcon = document.getElementById('contact-icon');
+      if (!contactIcon.contains(event.target) && !contactInfo.contains(event.target)) {
+        contactInfo.style.display = 'none';
+      }
+    });
+
+    function openModal(type) {
+      document.getElementById('auth-modal').style.display = 'flex';
+      document.getElementById('modal-title').innerText = type;
+
+      const extraFields = document.getElementById('extra-fields');
+      if (type === 'Inscription') {
+        extraFields.style.display = 'block';
+      } else {
+        extraFields.style.display = 'none';
+      }
+    }
+
+    document.getElementById('close-modal').addEventListener('click', function () {
+      document.getElementById('auth-modal').style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('auth-modal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    document.getElementById('auth-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("formulaire soumis");
+      document.getElementById('auth-modal').style.display = 'none';
+    });
+  </script>
+</body>
+</html>

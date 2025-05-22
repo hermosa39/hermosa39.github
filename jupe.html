@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jupes en Promotion - Hermosa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdf9f6;
+      margin: 0;
+      padding: 0;
+      color: #2e2e2e;
+    }
+
+    h1 {
+      text-align: center;
+      color: #b38b59;
+      font-family: 'Playfair Display', serif;
+      margin: 40px 0;
+    }
+
+    .product-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 0 20px 60px;
+    }
+
+    .product-card {
+      position: relative;
+      width: 250px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+    }
+
+    .image-container {
+      position: relative;
+      width: 100%;
+      padding-top: 130%;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .product-img {
+      width: 100%;
+      border-radius: 12px;
+      transition: opacity 0.4s ease-in-out;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .product-img.second {
+      opacity: 0;
+    }
+
+    .product-card:hover .product-img.first {
+      opacity: 0;
+    }
+
+    .product-card:hover .product-img.second {
+      opacity: 1;
+    }
+
+    .promo-label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #e74c3c;
+      color: #fff;
+      font-weight: bold;
+      font-size: 0.9em;
+      padding: 6px 12px;
+      border-radius: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      z-index: 2;
+    }
+
+    .price-details {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .old-price {
+      font-size: 1.1em;
+      text-decoration: line-through;
+      color: #999;
+    }
+
+    .new-price {
+      font-size: 1.4em;
+      color: #b38b59;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .discount {
+      font-size: 1.1em;
+      color: red;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .add-to-cart {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #b38b59;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .add-to-cart:hover {
+      background-color: #a07645;
+      transform: scale(1.05);
+    }
+    .return-home {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      text-decoration: none;
+      color: #a67b5b;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <a href="promotion.html" class="return-home">← Promo</a>
+
+  <h1>Nos Jupes en Promotion</h1>
+
+  <div class="product-grid">
+    
+    <div class="product-card">
+      <div class="image-container">
+        <span class="promo-label">Promo</span>
+        <img src="jupe1av.jpg" alt="Jupe 1" class="product-img first">
+        <img src="jupe1apr.jpg" alt="Jupe 1 portée" class="product-img second">
+      </div>
+      <div class="price-details">
+        <span class="old-price">3000 DA</span>
+        <span class="new-price">2100 DA</span>
+        <div class="discount">-30%</div>
+        <button class="add-to-cart">Ajouter au panier</button>
+      </div>
+    </div>
+
+    
+    <div class="product-card">
+      <div class="image-container">
+        <span class="promo-label">Promo</span>
+        <img src="jupe2av.jpg" alt="Jupe 2" class="product-img first">
+        <img src="jupe2ap.jpg" alt="Jupe 2 portée" class="product-img second">
+      </div>
+      <div class="price-details">
+        <span class="old-price">2800 DA</span>
+        <span class="new-price">2100 DA</span>
+        <div class="discount">-25%</div>
+        <button class="add-to-cart">Ajouter au panier</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="image-container">
+        <span class="promo-label">Promo</span>
+        <img src="jupe3av.jpg" alt="Jupe 3" class="product-img first">
+        <img src="jupe3ap.jpg" alt="Jupe 3 portée" class="product-img second">
+      </div>
+      <div class="price-details">
+        <span class="old-price">3500 DA</span>
+        <span class="new-price">2100 DA</span>
+        <div class="discount">-40%</div>
+        <button class="add-to-cart">Ajouter au panier</button>
+      </div>
+    </div>
+    
+<div class="product-card">
+    <div class="image-container">
+      <span class="promo-label">Promo</span>
+      <img src="jupe4av.jpg" alt="Jupe 4" class="product-img first">
+      <img src="jupe4ap.jpg" alt="Jupe 4 portée" class="product-img second">
+    </div>
+    <div class="price-details">
+      <span class="old-price">3200 DA</span>
+      <span class="new-price">2400 DA</span>
+      <div class="discount">-25%</div>
+      <button class="add-to-cart">Ajouter au panier</button>
+    </div>
+  </div>
+  
+    
+    </div>
+  </body>
+  </html>

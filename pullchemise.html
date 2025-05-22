@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pulls & Chemises - Hermosa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdf9f6;
+      margin: 0;
+      padding: 0;
+      color: #2e2e2e;
+    }
+
+    h1 {
+      text-align: center;
+      color: #b38b59;
+      font-family: 'Playfair Display', serif;
+      margin: 40px 0;
+    }
+
+    .product-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 0 20px 60px;
+    }
+
+    .product-card {
+      position: relative;
+      width: 250px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+    }
+
+    .image-container {
+      position: relative;
+      width: 100%;
+      padding-top: 130%;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .product-img {
+      width: 100%;
+      border-radius: 12px;
+      transition: opacity 0.4s ease-in-out;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .product-img.second {
+      opacity: 0;
+    }
+
+    .product-card:hover .product-img.first {
+      opacity: 0;
+    }
+
+    .product-card:hover .product-img.second {
+      opacity: 1;
+    }
+
+    
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #ff4c4c; 
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.9em;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .price-details {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .old-price {
+      font-size: 1.1em;
+      text-decoration: line-through;
+      color: #999;
+    }
+
+    .new-price {
+      font-size: 1.4em;
+      color: #b38b59;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .discount {
+      font-size: 1.1em;
+      color: red;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .add-to-cart {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #b38b59;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .add-to-cart:hover {
+      background-color: #a07645;
+      transform: scale(1.05);
+    }
+    .return-home {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      text-decoration: none;
+      color: #a67b5b;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <a href="promotion.html" class="return-home">← promo</a>
+
+  <h1>Nos Pulls & Chemises en Promotion</h1>
+
+  <div class="product-grid">
+    
+    <div class="product-card">
+      <div class="badge">Promo</div>
+      <div class="image-container">
+        <img src="pull1av.jpg" alt="Pull 1" class="product-img first">
+        <img src="pull1ap.jpg" alt="Pull 1 porté" class="product-img second">
+      </div>
+      <div class="price-details">
+        <p class="old-price">3500 DA</p>
+        <p class="new-price">2600 DA</p>
+        <p class="discount">-26% de réduction</p>
+        <button class="add-to-cart">Ajouter au Panier</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="badge">Promo</div>
+      <div class="image-container">
+        <img src="pull2av.jpg" alt="Pull 2" class="product-img first">
+        <img src="pull2ap.jpg" alt="Pull 2 porté" class="product-img second">
+      </div>
+      <div class="price-details">
+        <p class="old-price">3400 DA</p>
+        <p class="new-price">2500 DA</p>
+        <p class="discount">-26% de réduction</p>
+        <button class="add-to-cart">Ajouter au Panier</button>
+      </div>
+    </div><div class="product-card">
+        <div class="badge">Promo</div>
+        <div class="image-container">
+          <img src="pull3av.jpg" alt="Pull 3" class="product-img first">
+          <img src="pull3ap.jpg" alt="Pull 3 porté" class="product-img second">
+        </div>
+        <div class="price-details">
+          <p class="old-price">3300 DA</p>
+          <p class="new-price">2500 DA</p>
+          <p class="discount">-24% de réduction</p>
+          <button class="add-to-cart">Ajouter au Panier</button>
+        </div>
+      </div>
+  
+
+  
+      
+      <div class="product-card">
+        <div class="badge">Promo</div>
+        <div class="image-container">
+          <img src="chemise1av.jpg" alt="Chemise 1" class="product-img first">
+          <img src="chemise1ap.jpg" alt="Chemise 1 portée" class="product-img second">
+        </div>
+        <div class="price-details">
+          <p class="old-price">3300 DA</p>
+          <p class="new-price">2500 DA</p>
+          <p class="discount">-24% de réduction</p>
+          <button class="add-to-cart">Ajouter au Panier</button>
+        </div>
+      </div><div class="product-card">
+        <div class="badge">Promo</div>
+        <div class="image-container">
+          <img src="chemise2av.jpg" alt="Chemise 2" class="product-img first">
+          <img src="chemise2ap.jpg" alt="Chemise 2 portée" class="product-img second">
+        </div>
+        <div class="price-details">
+          <p class="old-price">3500 DA</p>
+          <p class="new-price">2600 DA</p>
+          <p class="discount">-26% de réduction</p>
+          <button class="add-to-cart">Ajouter au Panier</button>
+        </div>
+      </div>
+  
+      <div class="product-card">
+        <div class="badge">Promo</div>
+        <div class="image-container">
+          <img src="chemise3av.jpg" alt="Chemise 3" class="product-img first">
+          <img src="chemise3ap.jpg" alt="Chemise 3 portée" class="product-img second">
+        </div>
+        <div class="price-details">
+          <p class="old-price">3400 DA</p>
+          <p class="new-price">2500 DA</p>
+          <p class="discount">-26% de réduction</p>
+          <button class="add-to-cart">Ajouter au Panier</button>
+        </div>
+      </div>
+  
+    
+      </div>
+    
+    </body>
+    </html>
